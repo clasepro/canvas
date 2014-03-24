@@ -16,12 +16,17 @@
 			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
 			var contexto = canvas.getContext('2d');
 			
-			/*fillStyle: Color de relleno*/
-			contexto.fillStyle='red'
-			/*fillRect: crea rectangulos con relleno*/
-			contexto.fillRect(20,50,150,100);
-			/*clearRect:borra un espacio en el contexto*/
-			contexto.clearRect(50,70,40,40);
+			/*Coloca una transparencia a todos los graficos*/
+			contexto.globalAlpha=0.5;
+
+			contexto.strokeStyle='rgb(0,0,200)';
+			contexto.lineWidth=7;
+			/*strokeRect: dibuja un rectangulo con solo bordes*/
+			contexto.strokeRect(20,20,50,50);
+
+			contexto.fillStyle='red';
+			contexto.fillRect(20,80,50,50);
+
 
 		}
 		</script>
