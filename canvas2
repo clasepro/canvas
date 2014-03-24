@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rectangulo en canvas</title>
+		<style type="text/css">
+			canvas{
+				border: 2px solid; /*Borde de ancho 2 pixeles */
+				color: #80BFFF; /*Color del borde*/
+				background: LightCyan; /*Color de fondo*/
+			}
+		</style>
+		<script type="text/javascript">
+		window.onload=function(){
+			//Recibimos el elemento canvas
+			var canvas = document.getElementById("micanvas");
+			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
+			var contexto = canvas.getContext('2d');
+			
+			//Defino el color de relleno
+			contexto.fillStyle='#6666ff';
+			//Dibujo un rectangulo relleno de color
+			contexto.fillRect(50,30,150,100);
+
+			contexto.fillStyle='red';
+			contexto.fillRect(250,30,100,100);
+		}
+		</script>
+	</head>
+	<body>
+		<canvas id="micanvas" width="400" height="400">
+			Tú navegador no soporta el componente canvas de HTML5.
+		</canvas>
+
+	</body>
+</html>
