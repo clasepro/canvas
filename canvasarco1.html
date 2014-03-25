@@ -18,8 +18,22 @@
 			contexto = canvas.getContext('2d');
 			
 			var x=50,y=50,radio=40;
+
+			contexto.beginPath();
 			contexto.arc(x,y,radio,radianes(0),radianes(360),false);
+			contexto.stroke();
+			contexto.closePath();
+
+			contexto.beginPath();
+			contexto.arc(x+100,y,radio,radianes(0),radianes(360),true);
 			contexto.fill();
+			contexto.closePath();
+
+			contexto.beginPath();
+			contexto.arc(x,y+100,radio,radianes(0),radianes(180),false);
+			contexto.stroke();
+			contexto.closePath();
+			
 		}
 
 		function radianes(grados){
