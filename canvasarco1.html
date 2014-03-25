@@ -10,25 +10,22 @@
 			}
 		</style>
 		<script type="text/javascript">
+		var canvas, contexto;
 		window.onload=function(){
 			//Recibimos el elemento canvas
-			var canvas = document.getElementById("micanvas");
+			canvas = document.getElementById("micanvas");
 			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
-			var contexto = canvas.getContext('2d');
+			contexto = canvas.getContext('2d');
 			
-			/*Coloca una transparencia a todos los graficos*/
-			contexto.globalAlpha=0.5;
-
-			contexto.strokeStyle='rgb(0,0,200)';
-			contexto.lineWidth=7;
-			/*strokeRect: dibuja un rectangulo con solo bordes*/
-			contexto.strokeRect(20,20,50,50);
-
-			contexto.fillStyle='red';
-			contexto.fillRect(20,20,50,50);
-
-
+			var x=50,y=50,radio=40;
+			contexto.arc(x,y,radio,radianes(0),radianes(360),false);
+			contexto.fill();
 		}
+
+		function radianes(grados){
+			return Math.PI*(grados/180);
+		}
+
 		</script>
 	</head>
 	<body>

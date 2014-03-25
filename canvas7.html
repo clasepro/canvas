@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rectangulo en canvas</title>
+		<style type="text/css">
+			canvas{
+				border: 2px solid; /*Borde de ancho 2 pixeles */
+				color: #80BFFF; /*Color del borde*/
+				background: LightCyan; /*Color de fondo*/
+			}
+		</style>
+		<script type="text/javascript">
+		var canvas;
+		var contexto;
+		var bandera=0;
+		window.onload=function(){
+			//Recibimos el elemento canvas
+			canvas = document.getElementById("micanvas");
+			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
+			contexto = canvas.getContext('2d');
+			
+
+		}
+
+	
+
+		function mostrarTodo(){	
+			if(bandera=0){
+				var x=10, y=10, ancho=40, alto=60;
+				contexto.fillRect(x,y,ancho,alto);
+				contexto.strokeRect(x+41,y+41,ancho,alto);
+				bandera=1;
+				
+			}
+			if(bandera=1){
+			contexto.clearRect(0,0,canvas.width,canvas.height);
+			bandera=0;
+			}
+		}
+
+	function borrarTodo(){
+		if(bandera=1){
+			contexto.clearRect(0,0,canvas.width,canvas.height);
+			bandera=0;
+		}
+		}
+
+		</script>
+	</head>
+	<body>
+		<canvas id="micanvas" width="400" height="400">
+			Tú navegador no soporta el componente canvas de HTML5.
+		</canvas>
+		<a href="#" onclick="mostrarTodo()">Borrar todo</a>
+		<a href="#" onclick="mostrarTodo()">Mostrar todo</a>
+	</body>
+</html>
