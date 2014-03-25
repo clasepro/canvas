@@ -17,29 +17,26 @@
 			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
 			contexto = canvas.getContext('2d');
 			
-			var x=50,y=50,radio=40;
-
 			contexto.beginPath();
-			contexto.arc(x,y,radio,radianes(0),radianes(360),false);
-			contexto.stroke();
+				contexto.arc(50,50,10,radianes(0),radianes(360),true);
+				/*moveTo: cambiamos la ubicacion del cursor de dibujo*/
+				contexto.moveTo(50,80);
+				contexto.arc(50,50,30,radianes(90),radianes(180),true);
+
+				contexto.moveTo(160,50);
+				contexto.arc(150,50,10,radianes(0),radianes(360),true);
+				contexto.moveTo(150,80);
+				contexto.arc(150,50,30,radianes(90),radianes(360),false);
+
+				contexto.stroke();
 			contexto.closePath();
 
 			contexto.beginPath();
-			contexto.arc(x+100,y,radio,radianes(0),radianes(360),true);
-			contexto.fill();
+				contexto.arc(100,110,50,radianes(0),radianes(180),false);
+				contexto.stroke();
 			contexto.closePath();
 
-			/*antireloj=false --> en sentido del reloj*/
-			contexto.beginPath();
-			contexto.arc(x,y+100,radio,radianes(0),radianes(180),false);
-			contexto.stroke();
-			contexto.closePath();
 
-			/*antireloj=true*/
-			contexto.beginPath();
-			contexto.arc(x+100,y+100,radio,radianes(0),radianes(180),true);
-			contexto.stroke();
-			contexto.closePath();
 
 		}
 
