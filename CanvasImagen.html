@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ejemplo de canvas - Imagenes</title>
+      <style type="text/css">
+         canvas{
+            border: 2px solid;
+            color: #80BFFF;
+            background: LightYellow;
+         }
+         img{
+            display: none;
+         }
+      </style>
+      <script type="text/javascript">
+         window.onload = function(){
+         //Recibimos el elemento canvas
+         var lienzo=document.getElementById("micanvas");
+         //Accedo al contexto 2D del canvas, esto es necesario para dibujar
+         var contexto=lienzo.getContext("2d");
+         
+         var img=document.getElementById("imagen");
+         contexto.drawImage(img,0,0,200,200);
+
+         }
+
+      </script>
+   </head>
+   <body>
+      <canvas id="micanvas" width="300" height="200">
+         Tú navegador no soporta el componente canvas de HTML5.
+      </canvas>
+
+      <img src="HTML5logo.png" id="imagen">
+
+   </body>
+</html>

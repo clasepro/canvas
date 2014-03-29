@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ejemplo de canvas</title>
+      <style type="text/css">
+         canvas{
+            border: 2px solid;
+            color: #80BFFF;
+            background: LightYellow;
+         }
+      </style>
+      <script type="text/javascript">
+         window.onload = function(){
+         //Recibimos el elemento canvas
+         var lienzo=document.getElementById("micanvas");
+         //Accedo al contexto 2D del canvas, esto es necesario para dibujar
+         var contexto=lienzo.getContext("2d");
+         
+         contexto.beginPath();
+         contexto.arc(50,50,10,a_radianes(0),a_radianes(360),true);
+         contexto.moveTo(50,80);
+         contexto.arc(50,50,30,a_radianes(90),a_radianes(180),true);
+         contexto.moveTo(160,50);
+         contexto.arc(150,50,10,a_radianes(0),a_radianes(360),true);
+         contexto.moveTo(150,80);
+         contexto.arc(150,50,30,a_radianes(90),a_radianes(360),false);
+         contexto.stroke();
+         contexto.closePath();
+         
+         contexto.beginPath();
+         contexto.arc(100,110,50,a_radianes(0),a_radianes(180),false);
+         contexto.stroke();
+         contexto.closePath();
+         }
+
+         function a_radianes(grados){
+            return Math.PI * (grados / 180);
+         }
+
+      </script>
+   </head>
+   <body>
+      <canvas id="micanvas" width="300" height="200">
+         Tú navegador no soporta el componente canvas de HTML5.
+      </canvas>
+
+   </body>
+</html>

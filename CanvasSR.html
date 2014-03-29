@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ejemplo de canvas - Imagenes</title>
+      <style type="text/css">
+         canvas{
+            border: 2px solid;
+            color: #80BFFF;
+            background: LightYellow;
+         }
+      </style>
+      <script type="text/javascript">
+         window.onload = function(){
+         //Recibimos el elemento canvas
+         var lienzo=document.getElementById("micanvas");
+         //Accedo al contexto 2D del canvas, esto es necesario para dibujar
+         var contexto=lienzo.getContext("2d");
+         
+         contexto.fillStyle = 'red';
+         contexto.fillRect(20,20,20,20);
+
+         dibujarCirculo(contexto,'blue');
+
+         contexto.fillRect(100,20,20,20);
+         }
+
+         function dibujarCirculo(ctx,color){
+            ctx.save();
+            ctx.fillStyle=color;
+            ctx.arc(70,30,10,0,a_radianes(360),true);
+            ctx.fill();
+            ctx.restore();
+         }
+
+         function a_radianes(grados){
+            return Math.PI * (grados / 180);
+         }
+      </script>
+   </head>
+   <body>
+      <canvas id="micanvas" width="300" height="200">
+         Tú navegador no soporta el componente canvas de HTML5.
+      </canvas>
+
+   </body>
+</html>
