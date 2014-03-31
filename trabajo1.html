@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rectangulo canvas</title>
+		<style type="text/css">
+		canvas{
+			border: 2px solid;/*de ancho 2 pixeles y linea solida*/
+			color: #80BFFF;/*color borde*/
+			background: LightCyan;/*color de fondo*/
+		}
+		</style>
+		<script type="text/javascript">
+		var canvas, contexto;
+		window.onload=function(){
+			//Recibimos el elemento canvas
+			canvas = document.getElementById("micanvas");
+			//Acceso al contexto 2d del canvas, esto necesario para dibujar
+			contexto = canvas.getContext("2d");
+			
+			contexto.beginPath();
+			contexto.arc(100,100,50,radianes(90), radianes(270), true);
+			contexto.fill();
+			contexto.closePath();
+
+			contexto.beginPath();
+			contexto.arc(100,100,50,radianes(0), radianes(180), true);
+			contexto.fill();
+			contexto.closePath();
+
+			contexto.beginPath();
+			contexto.arc(100,100,30,radianes(0), radianes(360), true);
+			contexto.fill();
+			contexto.closePath();
+
+			contexto.beginPath();
+			contexto.fillStyle='#f3830a';
+			contexto.arc(100,100,15,radianes(0), radianes(360), true);
+			contexto.fill();
+			contexto.closePath();
+			}
+		function radianes(grados){
+			return Math.PI*(grados/180);
+		}
+		</script>
+	</head>
+	<body>
+	<canvas id="micanvas" width="400" height="400" >
+		Tu navegador no soporta el componente canvas de html5
+	</canvas>
+	</body>
+</html>
