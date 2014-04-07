@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Ejemplo de canvas</title>
+      <style type="text/css">
+         canvas{
+            border: 2px solid;
+            color: #80BFFF;
+            background: LightYellow;
+         }
+         img{
+            display: none;
+         }
+      </style>
+      <script type="text/javascript">
+         //importando la libreria jquery
+         src="js/jquery-2.0.2.min.js"
+         var x=350, y=250;
+         var movx=4, movy=2;
+         var lienzo, contexto;
+         window.onload = function(){
+         //Recibimos el elemento canvas
+         lienzo=document.getElementById("micanvas");
+         //Accedo al contexto 2D del canvas, esto es necesario para dibujar
+         contexto=lienzo.getContext("2d");
+         movimiento();
+         }
+         function movimiento(){
+            if(x>=680 || x<=20)
+               movx=movx*-1;
+            if(y>=480 || y<=20)
+               movy=movy*-1;
+            x=x+movx;
+            y=y+movy;
+            contexto.beginPath();
+            contexto.clearRect(0,0,700,500);
+            contexto.fillStyle="red";
+            contexto.arc(x,y,20,0,7,false); 
+            contexto.fill();
+            contexto.closePath();
+            //setTimeout(funcion,lapso de tiempo) = funcion del jquery
+            setTimeout("movimiento()",20);
+         }
+
+      </script>
+   </head>
+   <body>
+      <canvas id="micanvas" width="700" height="500">
+         Tú navegador no soporta el componente canvas de HTML5.
+      </canvas>
+
+   </body>
+</html>
