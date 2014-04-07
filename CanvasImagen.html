@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Ejemplo de canvas - Imagenes</title>
+      <title>Ejemplo de canvas</title>
       <style type="text/css">
          canvas{
             border: 2px solid;
@@ -19,11 +19,10 @@
          //Accedo al contexto 2D del canvas, esto es necesario para dibujar
          var contexto=lienzo.getContext("2d");
          
-         var img=document.getElementById("imagen");
-         contexto.drawImage(img,0,0,200,200);
-
+         var img = document.getElementById("imagen");
+         contexto.drawImage(img,-12,0,200,200);
+         contexto.drawImage(img,165,0,200,200);
          }
-
       </script>
    </head>
    <body>
@@ -31,7 +30,6 @@
          Tú navegador no soporta el componente canvas de HTML5.
       </canvas>
 
-      <img src="HTML5logo.png" id="imagen">
-
+      <img src="img/HTML5logo.png" id="imagen">
    </body>
 </html>

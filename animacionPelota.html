@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rectangulo en canvas</title>
+		<style type="text/css">
+			canvas{
+				border: 2px solid; /*Borde de ancho 2 pixeles */
+				color: #80BFFF; /*Color del borde*/
+				background: LightCyan; /*Color de fondo*/
+			}
+		</style>
+		<script type="text/javascript">
+		var canvas, contexto;
+		var velocidad=15, direccion=velocidad;
+		var iniciar=false, intervalo;
+		var x=50, y=10;
+
+		//Cargamos la funcion inicio cuando se produce el evento load de la página (ventana).
+		window.addEventListener('load',inicio);
+		function inicio(){
+			//Recibimos el elemento canvas
+			canvas = document.getElementById("micanvas");
+			//Acceso al contexto 2D del canvas, esto es necesario para dibujar
+			contexto = canvas.getContext('2d');
+			contexto.fillStyle='red';
+			contexto.arc(50,10,10,0,7);
+			contexto.fill();
+			document.getElementById('boton').addEventListener('click',function(){
+					if(iniciar){
+						this.value='Continuar';
+						//clearIntervalo limpia al canvas
+						window.clearInterval(intervalo);
+						iniciar=false;
+					}else{
+						this.value='Detener';
+						intervalo=window.setInterval(function(){MoverDibujar();},60);
+						//representa que la animacion tiene un intervalo de 32.
+						iniciar=true;
+					}
+
+				}
+				);
+		}
+		function dibujar(x,y){
+			//igualamos el tamaño del canvas para que se vea el movimiento
+			canvas.width=canvas.width;
+			contexto.fillStyle='red';
+			contexto.arc(x,y,10,0,7);
+			contexto.fill();
+		}
+		function MoverDibujar(){
+			if (y>(canvas.height-20)) direccion = -velocidad;
+			if (y<(20)) direccion = velocidad;
+			y+=direccion;
+			dibujar(x,y);
+		}
+
+
+		</script>
+	</head>
+	<body>
+		<canvas id="micanvas" width="400" height="400">
+			Tú navegador no soporta el componente canvas de HTML5.
+		</canvas>
+		<input type="button" value="Iniciar" id='boton'>
+	</body>
+</html>
